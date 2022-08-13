@@ -1,0 +1,13 @@
+.btn {
+  padding: 0.75rem 1.25rem;
+  font-size: 1.125rem;
+  outline: none;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: orange;
+  color: white;
+}

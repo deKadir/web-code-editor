@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Code Editor</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <!-- <header>
+      <nav>Web code editor</nav>
+    </header> -->
+    <main class="content">
+      <aside class="left-side">
+        <section class="editor html-editor">
+          <button class="btn btn-primary btn-format">Format</button>
+          <h1 class="title">HTML</h1>
+          <div class="editor-content" contenteditable></div>
+        </section>
+        <div class="bottom">
+          <section class="editor css-editor">
+            <h1 class="title">CSS</h1>
+            <div class="editor-content" contenteditable></div>
+          </section>
+          <section class="editor js-editor">
+            <h1 class="title">JS</h1>
+            <div class="editor-content" contenteditable></div>
+          </section>
+        </div>
+      </aside>
+      <span class="resize-vertical"></span>
+      <aside class="right-side">
+        <iframe class="result"></iframe>
+      </aside>
+    </main>
+
+    <script type="module" src="./scripts/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+@import './_variables.css';
+body {
+  font-family: 'tahoma', 'sans-serif';
+  max-height: 100vh;
+  overflow: hidden;
+}
+nav {
+  min-height: var(--nav-height);
+  background-color: var(--color-secondary);
+}
+
+/* Layout */
+.content {
+  display: flex;
+  height: 100%;
+}
+.left-side {
+  width: 60%;
+}
+.right-side {
+  width: 40%;
+}
+.bottom {
+  display: flex;
+  width: 100%;
+  height: 50%;
+}
+
+/* editors */
+.title {
+  padding-block: 0.25rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+.editor {
+  position: relative;
+  width: 100%;
+  padding: 0.25rem;
+}
+.html-editor {
+  height: 70%;
+  background-color: var(--color-neutral);
+}
+.html-editor:hover .btn-format {
+  opacity: 1;
+}
+.btn-format {
+  transition: var(--duration-1) all;
+  opacity: 0;
+  position: absolute;
+  top: 2.5rem;
+  right: 1rem;
+}
+.css-editor {
+  width: 50%;
+  background-color: var(--color-sky);
+}
+.css-editor .editor-content {
+  color: var(--color-text-primary);
+}
+.js-editor {
+  width: 50%;
+  background-color: var(--color-text-secondary);
+}
+
+.editor-content {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary);
+  outline: none;
+  padding: 0.25rem;
+  color: var(--color-text-secondary);
+}
+
+.result {
+  border-left: 1px solid var(--color-primary);
+  width: 100%;
+  height: 100%;
+}
