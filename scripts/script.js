@@ -1,34 +1,76 @@
-import prettier from 'https://unpkg.com/prettier@2.7.1/esm/standalone.mjs';
-import htmlParser from 'https://unpkg.com/prettier@2.7.1/esm/parser-html.mjs';
+import { parsers, prettier } from './packages/parser.js';
 
 const htmlContent = document.querySelector('.html-editor .editor-content'),
   cssContent = document.querySelector('.css-editor .editor-content'),
   jsContent = document.querySelector('.js-editor .editor-content'),
-  formatButton = document.querySelector('.btn-format');
+  formatButton = document.querySelector('.btn-format'),
+  result = document.querySelector('.result'),
+  editors = document.querySelectorAll('.editor-content');
 
-let result = document.querySelector('.result');
+editors.forEach((editor) => {
+  editor.addEventListener('keyup', handleResult);
+});
 
-htmlContent.addEventListener('keyup', handleResult);
-cssContent.addEventListener('keyup', handleResult);
-jsContent.addEventListener('keyup', handleResult);
 formatButton.addEventListener('click', handleFormat);
 
 document.addEventListener('DOMContentLoaded', initCode);
 
 function handleResult() {
-  let content = '';
-  content += `<style>${cssContent.innerText}</style>`;
-  content += `<script>${jsContent.innerText}</script>`;
-  content += `<body>${htmlContent.innerText}</body>`;
-  result.src = `data:text/html; charset=UTF-8, <html>${content}</html>`;
+  Code.setCode();
+  Code.display();
 }
 
 function handleFormat() {
-  let formatted = prettier.format(htmlContent.innerText, {
-    parser: 'html',
-    plugins: [htmlParser],
+  editors.forEach((editor) => {
+    const parser = editor.getAttribute('parser');
+    const { plugin } = parsers[parser];
+    const parsed = prettier.format(editor.innerText, {
+      parser,
+      plugins: [plugin],
+    });
+    editor.innerText = parsed;
   });
-  htmlContent.innerText = formatted;
 }
 
-function initCode() {}
+function initCode() {
+  Code.setCode({
+    html: '<h1>hello world!</h1>',
+  });
+  Code.setEditor();
+  Code.display();
+}
+
+const Code = {
+  code: {
+    html: htmlContent.innerText,
+    css: cssContent.innerText,
+    js: jsContent.innerText,
+  },
+
+  //set code to display
+  setCode: function ({
+    html = htmlContent.innerText,
+    css = cssContent.innerText,
+    js = jsContent.innerText,
+  } = {}) {
+    this.code.html = html;
+    this.code.css = css;
+    this.code.js = js;
+  },
+
+  //set frame to editor value
+  setEditor: function () {
+    const { html, css, js } = this.code;
+    htmlContent.textContent = html;
+    cssContent.textContent = css;
+    jsContent.textContent = js;
+  },
+  //print result to frame
+  display: function () {
+    result.src = `data:text/html; charset=UTF-8, <html>
+    <body>${this.code.html}</body>
+    <style>${this.code.css}</style>
+    <script>${this.code.js}</script>
+    </html>`;
+  },
+};

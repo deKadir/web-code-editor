@@ -45,7 +45,7 @@ nav {
   opacity: 1;
 }
 .btn-format {
-  transition: var(--duration-1) all;
+  transition: var(--duration-1) opacity;
   opacity: 0;
   position: absolute;
   top: 2.5rem;
@@ -56,11 +56,11 @@ nav {
   background-color: var(--color-sky);
 }
 .css-editor .editor-content {
-  color: var(--color-text-primary);
+  color: var(--color-sky);
 }
 .js-editor {
   width: 50%;
-  background-color: var(--color-text-secondary);
+  background-color: var(--color-charizard);
 }
 
 .editor-content {
@@ -68,8 +68,10 @@ nav {
   height: 100%;
   background-color: var(--color-primary);
   outline: none;
-  padding: 0.25rem;
-  color: var(--color-text-secondary);
+  padding: 0.75rem;
+  color: var(--color-magikarp);
+  font-size: 1.125rem;
+  line-height: 1.25;
 }
 
 .result {
