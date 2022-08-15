@@ -1,7 +1,7 @@
 @import './_variables.css';
 body {
   font-family: 'tahoma', 'sans-serif';
-  max-height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 nav {
@@ -38,8 +38,8 @@ nav {
   padding: 0.25rem;
 }
 .html-editor {
-  height: 70%;
   background-color: var(--color-neutral);
+  height: 50vh;
 }
 .html-editor:hover .btn-format {
   opacity: 1;
@@ -54,6 +54,7 @@ nav {
 .css-editor {
   width: 50%;
   background-color: var(--color-sky);
+  color: ;
 }
 .css-editor .editor-content {
   color: var(--color-sky);
@@ -72,6 +73,7 @@ nav {
   color: var(--color-magikarp);
   font-size: 1.125rem;
   line-height: 1.25;
+  overflow: auto;
 }
 
 .result {

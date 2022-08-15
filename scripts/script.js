@@ -34,7 +34,18 @@ function handleFormat() {
 
 function initCode() {
   Code.setCode({
-    html: '<h1>hello world!</h1>',
+    html: '<h1>hello I am frontend developer abdulkadir develioğlu!</h1>',
+    css: `body {
+      display: flex;
+      align-items: center;
+      background-color: antiquewhite;
+    }
+    
+    h1 {
+      font-family: tahoma;
+      color: slategrey;
+      text-align: center;
+    }`,
   });
   Code.setEditor();
   Code.display();
@@ -58,7 +69,7 @@ const Code = {
     this.code.js = js;
   },
 
-  //set frame to editor value
+  //set frame value to editor value
   setEditor: function () {
     const { html, css, js } = this.code;
     htmlContent.textContent = html;
